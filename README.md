@@ -1,4 +1,4 @@
-# BookSET - BookMarks Social Engineer Tool
+# BookSET - Bookmarks Social Engineer Tool
 
 A simple script for Post-Exploitation - by @_mrpack
 

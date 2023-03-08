@@ -129,3 +129,4 @@ The content of "bookmarks.json" it's easy to understand, the "current_url" it's 
   
   ```
 
+*NOTE:* Before you executed the script it's important to restart google chrome.

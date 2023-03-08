@@ -1,12 +1,12 @@
 {
     "bookmark_bar": [
       {
-        "current_url": "https://www.google.com.co/",
-        "new_url": "https://www.vcrdb.net/"
+        "current_url": "https://www.bank.com/",
+        "new_url": "https://www.fakebank.com/"
       },
       {
-        "current_url": "https://www.youtube.com/",
-        "new_url": "https://explainshell.com/"
+        "current_url": "https://intranet.companie.org/",
+        "new_url": "https://intranet.fakecompanie.org/"
       }
     ]
   }

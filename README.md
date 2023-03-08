@@ -6,6 +6,13 @@ This script was generated to modify all URLs in BookMarks from Google Chrome, th
 
 # 🔴: How it works!
 
+Ok... first of all we need to install just one library then ...
+```bash
+pip install pyfiglet
+
+```
+thats it :D !!
+
 ## Help !
 ```bash
 python bookSET.py -h

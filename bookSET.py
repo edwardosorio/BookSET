@@ -25,6 +25,8 @@ def get_bookmarks_path():
     os_name = detect_os()
     home_dir = os.path.expanduser("~")
     if os_name == "win":
+        # bookmarks_path = os.path.join(home_dir, "AppData", "Local", "Microsoft", "Edge", "User Data", "Default", "Bookmarks")
+        # bookmarks_path = os.path.join(home_dir, "AppData", "Local", "BraveSoftware", "Brave-Browser", "User Data", "Default", "Bookmarks")
         bookmarks_path = os.path.join(home_dir, "AppData", "Local", "Google", "Chrome", "User Data", "Default", "Bookmarks")
     elif os_name == "linux":
         bookmarks_path = os.path.join(home_dir, ".config", "google-chrome", "Default", "Bookmarks")
@@ -92,6 +94,8 @@ def recon_bookmarks():
     
 def close_chrome():
 
+    #chrome_path = "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" - Edge Browser
+    #chrome_path = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe" - Brave Browser
     running = 0
     url = "https://www.google.com"
     
@@ -165,3 +169,4 @@ if __name__ == "__main__":
         replace_bookmark_urls()
     else:
         parser.print_help()
+

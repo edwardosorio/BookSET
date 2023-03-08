@@ -10,7 +10,7 @@ This script was generated to modify all URLs in BookMarks from Google Chrome, th
 Ok... first of all we need to install just one library for ASCII Art:
 
 ```bash
-pip install pyfiglet
+pip install -r requirements.txt
 
 ```
 thats it :D !!

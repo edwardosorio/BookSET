@@ -108,9 +108,9 @@ just a simple post-exploitation tool :)
 
 ```
 
-## bookmarks.json file content
+## [+] bookmarks.json file content
 
-The content of "bookmarks.json" it's easy to understand, the "current_url" it's the URL that we want to change and put the "new_url" instead.
+The content of "bookmarks.json" it's easy to understand, the "current_url" it's the URL that we want to change and replace it with "new_url" instead.
 
 ```bash
 

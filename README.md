@@ -2,12 +2,13 @@
 
 A simple script for Post-Exploitation - by @_mrpack
 
-This script was generated to modify all URLs in BookMarks from Google Chrome, this script can be use for capture some credentials with Phishing sites or just redirect the victim to your EvilServer.
+This script was generated to modify all URLs in BookMarks from Google Chrome, this script can be use for capture some credentials with Phishing sites or just redirect the "victim" to your EvilServer.
 
 
 # 🔴: How it works!
 
-Ok... first of all we need to install just one library then ...
+Ok... first of all we need to install just one library for ASCII Art:
+
 ```bash
 pip install pyfiglet
 
@@ -15,6 +16,9 @@ pip install pyfiglet
 thats it :D !!
 
 ## Help !
+
+if you need to know the parameters from the script pls type:
+
 ```bash
 python bookSET.py -h
 
@@ -42,7 +46,8 @@ optional arguments:
 
 
 ## [+] Recon Mode 
-If we want to know what BookMarks the target has, then we just need to execute the following commandline:
+
+If you want to know what BookMarks the target has, then we just need to execute the following command line:
 ```bash
 python bookSET.py -recon
 
@@ -73,7 +78,7 @@ and the output should be something like this:
 
 ## [+] Replace Mode
 
-Now that we know all the BookMark that the target has, we can check all the urls and just make a "fake website" ;) :
+Now that we know all the BookMark that the target has, we can check all the URLs and just make a "fake website"  for each URL that we want ;) :
 
 ```bash
 python bookSET.py -replace
@@ -104,6 +109,8 @@ just a simple post-exploitation tool :)
 ```
 
 ## bookmarks.json file content
+
+The content of "bookmarks.json" it's easy to understand, the "current_url" it's the URL that we want to change and put the "new_url" instead.
 
 ```bash
 

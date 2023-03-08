@@ -31,9 +31,7 @@ def get_bookmarks_path():
         raise OSError("something its wrong :( ")
 
     return bookmarks_path
-    #home_dir = os.path.expanduser("~")
-    #bookmarks_path = os.path.join(home_dir, "AppData", "Local", "Google", "Chrome", "User Data", "Default", "Bookmarks")
-    #return bookmarks_path
+
 
 def read_bookmarks():
     bookmarks_path = get_bookmarks_path()

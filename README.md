@@ -2,12 +2,14 @@
 
 A simple script for Post-Exploitation - by @_mrpack
 
-This script was generated to modify all URLs in BookMarks from Google Chrome, this script can be use for capture some credentials with Phishing sites or just redirect the "victim" to your EvilServer.
+This script was generated to modify all URLs in BookMarks from some web browsers like Google Chrome, Brave and Edge.
+
+This script can be used to capture some credentials with Phishing sites or just redirect the "victim" to your EvilServer.
 
 
 # 🔴: How it works!
 
-Ok... first of all we need to install just one library for ASCII Art:
+Ok... first of all we need to install some libraries:
 
 ```bash
 pip install -r requirements.txt
@@ -129,10 +131,10 @@ The content of "bookmarks.json" it's easy to understand, the "current_url" it's 
   
   ```
 
-*NOTE: This script was tested for the following Web Browsers:
+NOTE: This script was tested for the following Web Browsers:
 
 - Google Chrome
 - Edge
 - Brave
 
-You just need to change the Browser Path*
+You just need to change the Browser Path

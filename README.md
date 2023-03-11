@@ -151,9 +151,9 @@ Chrome it's running !!
 ```
 once the script finished we can check all the changes.
 
-![](https://secthings.io/assets/images/bookset/fakebank.png) 
+![](/assets/images/bookset/fakebank.png) 
 
-![](https://secthings.io/assets/images/bookset/intranetcompanie.png)
+![](/assets/images/bookset/intranetcompanie.png)
 
 
 
